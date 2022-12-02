@@ -11,38 +11,37 @@ on:
       - closed
 
 jobs:
-  # quality:
-  #   runs-on: ${{ matrix.os }}
-  #   if: ${{ github.event.pull_request.merged == true}}
+  quality:
+    runs-on: ${{ matrix.os }}
+    if: ${{ github.event.pull_request.merged == true}}
 
-  #   strategy:
-  #     matrix:
-  #       node-version: [14, 16, 18]
-  #       os: [ubuntu-latest]
-  #       # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    strategy:
+      matrix:
+        node-version: [14, 16, 18]
+        os: [ubuntu-latest]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - name: Use Node.js ${{ matrix.node-version }}
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: ${{ matrix.node-version }}
-  #     - run: npm ci
-  #     - run: npm test
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm test
 
   publish:
     runs-on: ubuntu-latest
-    # if: ${{ github.ref == 'refs/heads/master'}}
-    # needs: [quality]
+    if: ${{ github.ref == 'master'}}
+    needs: [quality]
     steps:
-      - run: echo ${{ github.base_ref }}
-      # - uses: actions/checkout@v3
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      # - run: npm ci
-      # - run: npm run semantic-release
-      #   env:
-      #     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - run: npm run semantic-release
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
