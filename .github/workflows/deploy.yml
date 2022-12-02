@@ -6,7 +6,7 @@ name: Node.js CI
 on:
   push:
     branches:
-      - main
+      - master
   # pull_request:
   #   branches:
   #     - "master"
@@ -40,9 +40,9 @@ jobs:
     needs: [quality]
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.base.ref }}
+        # with:
+        #   fetch-depth: 0
+        #   ref: ${{ github.event.pull_request.base.ref }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
