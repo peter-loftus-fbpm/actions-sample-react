@@ -1,5 +1,5 @@
 {
-  "name": "actions-sample-react",
+  "name": "@peter-loftus-fbpm/actions-sample-react",
   "version": "0.0.0-development",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/peter-loftus-fbpm/actions-sample-react"
