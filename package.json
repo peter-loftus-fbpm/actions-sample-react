@@ -2,7 +2,7 @@
   "name": "@peter-loftus-fbpm/actions-sample-react",
   "version": "0.0.0-development",
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/peter-loftus-fbpm/actions-sample-react"
+    "registry": "https://npm.pkg.github.com/peter-loftus-fbpm"
   },
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
