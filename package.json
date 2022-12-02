@@ -21,7 +21,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "commit": "cz"
   },
   "eslintConfig": {
     "extends": [
@@ -46,6 +47,12 @@
     "url": "https://github.com/peter-loftus-fbpm/actions-sample-react.git"
   },
   "devDependencies": {
+    "cz-conventional-changelog": "^3.3.0",
     "semantic-release": "^19.0.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
