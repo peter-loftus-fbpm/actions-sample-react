@@ -16,7 +16,7 @@ on:
 jobs:
   quality:
     runs-on: ${{ matrix.os }}
-    if: ${{ github.event.pull_request.merged == true}}
+    # if: ${{ github.event.pull_request.merged == true}}
 
     strategy:
       matrix:
